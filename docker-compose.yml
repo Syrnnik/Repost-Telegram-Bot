@@ -1,0 +1,6 @@
+version: '3'
+services:
+  repost-bot:
+    build: .
+    container_name: repost-bot
+    restart: always
