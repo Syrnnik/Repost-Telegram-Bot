@@ -1,40 +1,69 @@
-# Telegram-Bot-Template
+# Repost-Telegram-Bot
 
-This GitHub template repository provides a starting point for creating Telegram bots using the aiogram library version
-3.2.0. It aims to streamline the development process by providing a basic project structure and essential files.
+Repost-Telegram-Bot is a Python-based tool for messages reposting in Telegram groups and channels.
+Simplify content sharing with its easy-to-use interface and customizable features.
 
-### Features:
+### How to get special `.env` keys
 
-✅ Preconfigured development environment with aiogram 3.2.0
+In the `.env.template` file you can find these keys:
 
-✅ Basic project structure for easy organization of code
+```dotenv
+BOT_TOKEN=
 
-✅ Example bot implementation showcasing usage of aiogram features
+VK_APP_ACCESS_TOKEN=
+VK_GROUP_ACCESS_TOKEN=
 
-✅ Configuration file for storing token and other bot settings
+VK_GROUP_TAG=
+VK_GROUP_ID=
 
-✅ Predefined command handlers for common Telegram bot commands
+TG_CHANNEL_ID=
+```
 
-✅ Dockerfile for building the Docker image including all dependencies.
+- `BOT_TOKEN` - token of your Telegram bot.
+- `VK_APP_ACCESS_TOKEN` - access token of your VK App.
 
-🔜 Exception handling and logging setup
+  Open https://vk.com/dev, create the app and copy the id of your app.
+
+- `VK_GROUP_ACCESS_TOKEN` - access token from your VK community.
+
+  Just open your community page -> "Settings" -> "Working with the API".
+
+  There you need open "Access keys" tab and create access token with necessary permissions.
+
+  There you need open "Long Poll API" tab and configure Long Polling.
+
+- `VK_GROUP_TAG` - tag of your VK community.
+
+  Just open your community page and copy the last in url,
+  e.g. `https://vk.com/example_commmunity`, the `example_commmunity` is the tag.
+
+- `VK_GROUP_ID` - id of your VK community.
+
+  Open this link below:
+  ```url
+  https://api.vk.com/method/groups.getById?group_id=<your_group_tag>&access_token=<vk_community_access_token>&v=<api_version>
+  ```
+  Replace `<your_group_tag>` with your community tag,
+  `<vk_community_access_token>` with your access token from VK community,
+  and `<api_version>` with API version that you selected in "Long Poll API" tab in VK community.
+
+- `TG_CHANNEL_ID` - id of your Telegram channel of group.
+
+  Open `@LeadConverterToolkitBot` bot and forward there any message from your channel or group,
+  and you'll get id of your channel or group.
 
 ### How to Use:
 
-1. Click on the "Use this template" button to create a new repository based on this template.
-2. Clone the newly created repository to your local machine.
-3. Install the necessary dependencies by running `make install`.
-4. Create the `.env` file in the root of project and set `BOT_TOKEN` of your Telegram bot.
-5. Customize the bot implementation in `main.py` to add desired functionality.
-6. Run the bot using `make run` and start interacting with it on Telegram.
+1. Clone the repository to your local machine.
+2. Install the necessary dependencies by running `make install`.
+3. Create the `.env` file in the root of project and set all what are presented in the `.env.template` file.
+4. Run the bot using `make run` and start interacting with it on Telegram.
 
-The template repository sets up a foundation for building your Telegram bot using aiogram 3.2.0, taking care of the
-initial project structure and providing an example implementation. You can further enhance and customize your bot by
-extending the provided codebase according to your requirements.
+### Docker
 
-_Note: Make sure to review the aiogram [documentation](https://docs.aiogram.dev) for in-depth explanations of the
-library's features and explore its capabilities to create powerful and interactive Telegram bots._
+To run the repository using Docker and docker-compose,
+run the following command to start the application using docker-compose:
 
-Please feel free to modify and adapt this template to suit your specific bot development needs.
-
-**Happy coding!💻🐞**
+```bash
+docker-compose up -d
+```
